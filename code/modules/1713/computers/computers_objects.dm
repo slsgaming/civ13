@@ -1,19 +1,25 @@
-
 //////////////////////////////////////////////////////////////
 /obj/structure/computer/nopower/aotd
 	name = "Desktop Computer"
-	desc = "A desktop computer running the latest version of UngaOS. Has a floppy drive."
+	desc = "A desktop computer running the latest version of Unga OS. Has a floppy drive."
 	powered = TRUE
 	powerneeded = FALSE
 	anchored = TRUE
-	display = "<b>ungaOS 94</b>"
-	operatingsystem = "ungaOS 94"
+	display = "<b>unga OS</b>"
+	operatingsystem = "unga OS"
 /obj/structure/computer/nopower/aotd/attack_hand(var/mob/living/human/H)
 	..()
 /obj/structure/computer/nopower/aotd/attackby(var/obj/item/W, var/mob/living/human/H)
 	if (istype(W, /obj/item/stack/money))
 		return
 	else if (istype(W, /obj/item/weapon/disk))
+		if (istype(W, /obj/item/weapon/disk/os))
+			var/obj/item/weapon/disk/os/OSD = W
+			if (OSD.operatingsystem != src.operatingsystem)
+				src.operatingsystem = OSD.operatingsystem
+				src.boot(OSD.operatingsystem)
+				playsound(get_turf(src), 'sound/machines/computer/floppydisk.ogg', 100, TRUE)
+			return
 		var/obj/item/weapon/disk/D = W
 		if (D.faction == H.civilization)
 			H << "<span class='notice'>You can't read a disk belonging to your company.</span>"
@@ -70,41 +76,7 @@
 						DLR.update_icon()
 						D.used = TRUE
 						qdel(D)
-	else
-/*
-		if (istype(W, /obj/item/stack))
-			var/obj/item/stack/ST = W
-			if (ST.amount <= 0)
-				return
-			else
-				var/price = input(H, "What price do you want to place the [ST.amount] [ST] for sale in the DEEPNET? (in dollars).") as num|null
-				if (!isnum(price))
-					return
-				if (price <= 0)
-					return
-				else
-					//owner, object, amount, price, sale/buy, fulfilled
-					var/idx = rand(1,999999)
-					map.globalmarketplace += list("[idx]" = list(H.civilization,ST,ST.amount,price*4,"sale","[idx]",1))
-					H.drop_from_inventory(ST)
-					ST.forceMove(locate(0,0,0))
-					H << "You place \the [ST] for sale in the <b>DEEPNET</b>."
-					return
-		else
-			var/price = input(H, "What price do you want to place the [W] for sale in the DEEPNET? (in dollars).") as num|null
-			if (!isnum(price))
-				return
-			if (price <= 0)
-				return
-			else
-				//owner, object, amount, price, sale/buy, id number, fulfilled
-				var/idx = rand(1,999999)
-				map.globalmarketplace += list("[idx]" = list(H.civilization,W,1,price*4,"sale","[idx]",1))
-				H.drop_from_inventory(W)
-				W.forceMove(locate(0,0,0))
-				H << "You place \the [W] for sale in the <b>DEEPNET</b>."
-				return
-*/
+
 //////////////////////////////////////////////////////////////
 /obj/structure/computer/nopower/carsales
 	name = "CARTRADER Terminal"
@@ -112,6 +84,10 @@
 	powered = TRUE
 	powerneeded = FALSE
 	anchored = TRUE
+	operatingsystem = "unga 0S"
+/obj/structure/computer/nopower/carsales/attack_hand(mob/living/human/H)
+	WWalert(H,"You need to use money on it.","CARTRADER terminal")
+	return
 /obj/structure/computer/nopower/carsales/attackby(var/obj/item/D, var/mob/living/human/H)
 	var/found = FALSE
 	for(var/turf/T in get_area_turfs(/area/caribbean/supply))
@@ -244,142 +220,12 @@
 //////////////////////////////////////////////////////////////
 /obj/structure/computer/nopower/police
 	name = "Police Processing Terminal"
-	desc = "A terminal that processes and registers warrants."
+	desc = "A computer running unga OS 94 Police Edition, with access to both civilians and Police."
 	icon_state = "research_on"
 	powered = TRUE
 	powerneeded = FALSE
 	anchored = TRUE
-	var/list/pending_warrants = list()
+	density = TRUE
+	operatingsystem = "unga OS 94 Police Edition"
 
-/obj/structure/computer/nopower/police/attack_hand(var/mob/living/human/H)
-	if (!ishuman(H))
-		return
-	var/what = WWinput(H, "Welcome to the Police Processing Terminal. What do you want to do?", "P.P.T.", "Quit",list("Quit","Check Warrants", "Print Warrant", "Register Suspect"))
-	switch(what)
-		if ("Quit")
-			return
-		if ("Check Warrants")
-			var/list/tlist = list()
-			for(var/obj/item/weapon/paper/police/warrant/SW in pending_warrants)
-				tlist += "[SW.arn]: [SW.tgt], working for [SW.tgtcmp]"
-			tlist += "Quit"
-			var/choice = WWinput(H, "Current Warrants:","P.P.T.","Quit",tlist)
-			if (choice)
-				return
-		if ("Print Warrant")
-			var/list/tlist = list()
-			for(var/obj/item/weapon/paper/police/warrant/SW in pending_warrants)
-				tlist += "[SW.arn]: [SW.tgt], working for [SW.tgtcmp]"
-			tlist += "Quit"
-			var/choice = WWinput(H, "Choose a Warrant to print:","P.P.T.","Quit",tlist)
-			if (choice == "Quit")
-				return
-			else
-				choice = splittext(choice,":")[1]
-				for(var/obj/item/weapon/paper/police/warrant/SW in pending_warrants)
-					if (SW.arn == text2num(choice))
-						var/obj/item/weapon/paper/police/warrant/NW = new/obj/item/weapon/paper/police/warrant(loc)
-						NW.tgt_mob = SW.tgt_mob
-						NW.tgt = SW.tgt
-						NW.tgtcmp = SW.tgtcmp
-						NW.arn = SW.arn
-						return
-		if ("Register Suspect")
-			var/done = FALSE
-			var/found = FALSE
-			for (var/mob/living/human/S in range(2,src))
-				found = TRUE
-				for(var/obj/item/weapon/paper/police/warrant/SW in pending_warrants)
-					if (SW.tgt_mob == S)
-						map.scores["Police"] += 300
-						done = TRUE
-						pending_warrants -= SW
-						visible_message("<big><font color='green'>Processed warrant no. [SW.arn] for [SW.tgt].</font></big>")
-						pending_warrants -= SW
-						SW.forceMove(null)
-						qdel(SW)
-			if (!done && found)
-				visible_message("<big><font color='yellow'>There are no outstanding warrants for any of the suspects.</font></big>")
-			else if (!done && !found)
-				visible_message("<big><font color='yellow'>There are no suspects present.</font></big>")
-			else if (done && found)
-				visible_message("<big><font color='green'><b>All suspects in the bench have been sucessfully registed into the system and can be released now.</b></font></big>")
-
-
-//////////////////////////////////////////////////////////////
-/obj/structure/computer/nopower/police_registry
-	name = "Police Registration Terminal"
-	desc = "A terminal that processes gun and car licences."
-	icon_state = "1980_computer_on"
-	powered = TRUE
-	powerneeded = FALSE
-	anchored = TRUE
-
-/obj/structure/computer/nopower/police_registry/attackby(var/obj/item/D, var/mob/living/human/H)
-	if (H.civilization == "Police" || H.civilization == "Paramedics")
-		H << "You cannot use this, it is a civilian terminal."
-		return
-	if (istype(D, /obj/item/stack/money))
-		var/choice = WWinput(H, "Welcome to the Police Registration Terminal. What do you want to do?", "P.R.T.", "Quit", list("Quit","Request Gun Licence"))
-		switch(choice)
-			if ("Quit")
-				return
-			if ("Request Gun Licence")
-				if (H.gun_permit)
-					H << "<font color='yellow'>You are already licenced.</span>"
-					return
-				else if  (H.real_name in map.warrants)
-					H << "<font color='red'>You have, or had, a warrant in your name, so your request was <b>denied</b>.</font>"
-					return
-				else
-					var/obj/item/stack/money/M = D
-					if (M.value*M.amount >= 100*4)
-						M.amount-=100/5
-					else
-						H << "<font color='red'>Not enough money!</font>"
-						return
-					H.gun_permit = TRUE
-					H << "<font color='green'>Your licence was <b>approved</b>.</span>"
-					map.scores["Police"] += 100
-	else
-		..()
-/obj/structure/computer/nopower/police_registry/attack_hand(var/mob/living/human/H)
-	if (H.civilization == "Police" || H.civilization == "Paramedics")
-		H << "You cannot use this, it is a civilian terminal."
-		return
-	var/choice = WWinput(H, "Welcome to the Police Registration Terminal. What do you want to do?", "P.R.T.", "Quit", list("Quit","Citizens Arrest"))
-	switch(choice)
-		if ("Quit")
-			return
-		if ("Citizens Arrest")
-			var/done = FALSE
-			var/found = FALSE
-			var/obj/structure/computer/nopower/police/PTER = null
-			for(var/obj/structure/computer/nopower/police/PTER2 in world)
-				PTER = PTER2
-			if (!PTER)
-				return
-			for (var/mob/living/human/S in range(2,src))
-				if (S.civilization != H.civilization && S.handcuffed && S != H)
-					found = TRUE
-					for(var/obj/item/weapon/paper/police/warrant/SW in PTER.pending_warrants)
-						if (SW.tgt_mob == S)
-							map.scores["Police"] += 100
-							var/obj/item/stack/money/dollar/DLR = new/obj/item/stack/money/dollar(loc)
-							DLR.amount = 20
-							DLR.update_icon()
-							done = TRUE
-							visible_message("<big><font color='green'>Processed warrant no. [SW.arn] for [SW.tgt], as a citizens arrest. Thank you for your service.</font></big>")
-							PTER.pending_warrants -= SW
-							SW.forceMove(null)
-							qdel(SW)
-							for(var/mob/living/human/HP in player_list)
-								if (HP.civilization == "Police")
-									HP << "<big><font color='yellow'>A suspect with a pending warrant has been dropped off at the Police station by a citizens arrest.</font></big>"
-				if (!done && found)
-					visible_message("<big><font color='yellow'>There are no outstanding warrants for any of the suspects.</font></big>")
-				else if (!done && !found)
-					visible_message("<big><font color='yellow'>There are no suspects present.</font></big>")
-				else
-					visible_message("<big><font color='yellow'>There are no outstanding warrants for any of the suspects.</font></big>")
-				return
+//////////////////////////////////////////
