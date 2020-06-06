@@ -350,6 +350,13 @@
 		'UI/templates/vending_machine.tmpl',
 		'UI/templates/vending_machine2.tmpl',
 		'UI/templates/vending_machine_taotd.tmpl',
+
+		'UI/images/ms/blast.gif',
+		'UI/images/ms/bomb.gif',
+		'UI/images/ms/error.gif',
+		'UI/images/ms/flag.gif',
+		'UI/images/ms/smile.gif',
+		'UI/images/ms/win.gif',
 		)
 
 	spawn (10) //removing this spawn causes all clients to not get verbs.

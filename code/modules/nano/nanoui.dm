@@ -119,7 +119,9 @@ nanoui is used to open and update nano browser uis
 	add_script("nano_base_helpers.js") // The NanoBaseHelpers JS, this is used to set up template helpers which are common to all UIs
 	add_stylesheet("shared.css") // this CSS sheet is common to all UIs
 	add_stylesheet("icons.css") // this CSS sheet is common to all UIs
-
+	
+	add_script("Mine.Code.js") // Minesweeper
+	
  /**
   * Set the current status (also known as visibility) of this ui.
   *

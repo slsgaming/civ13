@@ -434,7 +434,33 @@
 				sleep(0.5)
 				do_html(user)
 				return
-
+	if (href_list["minesweeper"])
+		mainbody = {"
+		<script language="JavaScript" type="text/javascript" src="Mine.Code.js"></script>
+		<div id="playground"></div>
+		<script language="JavaScript" type="text/javascript">
+		<!--
+			var the_row = 8,the_col = 8,the_mine = 10;
+			var num_arr;
+			var queryStr = document.location.search;
+			var pat = /\\d+/ig;
+			num_arr = queryStr.match(pat);
+			if(num_arr != null)
+			{
+				the_row = num_arr[0];
+				the_col = num_arr[1];
+				the_mine = num_arr[2];	
+			}
+			startMinesweeper(the_row,the_col,the_mine);
+			
+			function closeWindow()
+			{
+				window.open('', '_self', ''); //bug fix for Chrome
+				window.close();
+			}
+		//-->
+		</script>
+	"}
 	var/action = href_list["action"]
 	if(action == "textrecieved")
 		var/typenoise = pick('sound/machines/computer/key_1.ogg',
@@ -458,7 +484,7 @@
 		mainmenu = {"
 		<i><h1><img src='uos94.png'></img></h1></i>
 		<hr>
-		<a href='?src=\ref[src];mail=99999'>E-mail</a>&nbsp;<a href='?src=\ref[src];deepnet=1'>DEEPNET</a>
+		<a href='?src=\ref[src];mail=99999'>E-mail</a>&nbsp;<a href='?src=\ref[src];deepnet=1'>DEEPNET</a>&nbsp;<a href='?src=\ref[src];minesweeper=1'>Minesweeper</a>
 		"}
 		mainbody = "System initialized."
 	else if (operatingsystem == "unga OS 94 Police Edition")
