@@ -1,5 +1,4 @@
-# Civilization 13 
-# <center>README</center>
+# Civilization 13
 
 [![Build Status](https://travis-ci.com/Civ13/Civ13.svg?branch=master)](https://travis-ci.com/DojoDetroit/Civ13)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/DojoDetroit/civ13.svg?style=flat)
@@ -10,7 +9,7 @@
 Civ13: OSE is an opensource variant of the popular Civilization13 codebase on BYOND.
 
 <kbd>
- <img src="https://i.imgur.com/OO55VE4.png">
+ <img src="https://i.imgur.com/napac0L.png">
 </kbd>
 
 
@@ -19,11 +18,11 @@ Civ13: OSE is an opensource variant of the popular Civilization13 codebase on BY
 
 
 ## Official Website
-http://b.link/civ13
+https://slsgaming.net
 
 
 ## Trello
-http://b.link/civ13trello
+https://civ13.slsgaming.net/trello
 
 
 ## Playing the game
@@ -33,20 +32,20 @@ You will need a windows machine or a virtual machine running it from another OS.
 
 2. Register a BYOND account at https://secure.byond.com/Join
 
-3. Launch BYOND.exe
+3. Launch BYOND from **BYOND/bin/Byond.exe** and login.
 
-4. Click [byond://play.zone6.page:1714](byond://play.zone6.page:1714) or <br>Navigate to **[Space Station 13](http://b.link/ss13hub)** and search for the **Civ13: OSE** server.
+4. Navigate to **Space Station 13** and search for the **Civilization 13** server.
 
 5. You will start playing in seconds!
 
 
 ## Hosting a server
-You will need a Linux machine (preferably Ubuntu or Debian based) to have map switching properly work...[](https://)
+You will need a Linux machine (preferably Ubuntu or Debian based) to have map switching properly work...
 
-### Setup a Linux server (Ubuntu|Debian)
-***NOTE***: You will need a debian-based machine for the automated install, preferably Ubuntu (supported) or Debian... 
+### Setting up a Linux server (Ubuntu|Debian)
+NOTE: You will need a debian-based machine for the automated install, preferably Ubuntu (supported) or Debian... 
 
-1. Open the command line/terminal.
+1. Open the command line.
 2. Make sure wget is installed
     >$ ***sudo apt install wget***
 	
@@ -57,6 +56,6 @@ You will need a Linux machine (preferably Ubuntu or Debian based) to have map sw
     >$ **sudo bash INSTALL** and it should install everything you need.
  
  5. Now start the DreamDaemon via python
-     >$ **sudo launch.py &**
+     > $ **sudo launch.py &**
 
 6. Enjoy! You can close out of the ssh window or if on console logout.
