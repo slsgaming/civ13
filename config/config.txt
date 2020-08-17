@@ -1,8 +1,8 @@
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice.
 ## IMPORTANT: Don't include special characters such as ' in here
-SERVER_NAME Civilization 13 OSE
+SERVER_NAME civ13: OSE [official]
 
-## Where is the game folder located?
+## Where is the game folder located? (FOR UNIX)
 MASTER_DIRECTORY /home/1713
 
 ## If this server is running: Persistence mode, RP maps only, TDM only, or both (PERSISTENCE RP TDM ALL).
@@ -161,7 +161,7 @@ GITHUBURL https://github.com/DojoDetroit/civ13/
 TICK_LIMIT_MC_INIT 500
 
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
-TICKLAG 0.4
+TICKLAG 0.5
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
