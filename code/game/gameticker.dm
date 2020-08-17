@@ -196,7 +196,7 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 						restart_after = 1200 - n
 
 			if (!delay_end)
-				world << "<span class='notice'><big>Restarting <b>90</b> seconds after voting...</big></span>"
+				world << "<span class='notice'><big>Restarting <b>90</b> seconds after voting for map...</big></span>"
 				world << "<small><b><font color = 'red'>Please wait until after map voting for an automatic reboot</font></b></small>"
 				for(var/mob/m in world)
 					if(m.client) m.vote() //if someone is online force them to vote bc fuck freewill
