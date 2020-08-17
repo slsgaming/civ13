@@ -248,8 +248,8 @@ var/world_topic_spam_protect_time = world.timeofday
 	return TRUE
 
 /world/proc/load_motd()
-	if(fexists("config/official-motd.txt")) join_motd = file2text("config/official-motd.txt") && world.log << "\[MOTD] Official MOTD Loaded"
-	else join_motd = file2text("config/motd.txt") && world.log << "\[MOTD] No official MOTD detected, switching to default motd.txt"
+	if(!fexists("config/official-motd.txt")) join_motd = file2text("config/motd.txt")
+	else join_motd = file2text("config/official-motd.txt")
 
 /proc/load_configuration()
 	config = new /datum/configuration()
