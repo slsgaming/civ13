@@ -1,6 +1,6 @@
 //dont use this! use epoch vote
 /client/proc/start_mapswap_vote()
-	set category = "Map"
+	set category = "Epoch"
 	set name = "Start Map Vote"
 	if (!check_rights(R_ADMIN))
 		return

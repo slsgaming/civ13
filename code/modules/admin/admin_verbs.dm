@@ -73,6 +73,7 @@ var/list/admin_verbs_admin = list(
 	/datum/admins/proc/set_research_speed,
 	/datum/admins/proc/set_custom_age,
 	/datum/admins/proc/toggle_ores,
+	///datum/admins/proc/new_admin,
 )
 var/list/admin_verbs_trialadmin = list(
 	/client/proc/quickBan_search,
@@ -353,7 +354,8 @@ var/list/admin_verbs_host = list(
 	verbs.Remove(/client/proc/hide_most_verbs, admin_verbs_hideable)
 	verbs += /client/proc/show_verbs
 
-	src << "<span class='interface'>Most of your adminverbs have been hidden.</span>"
+	//if(!winshow(src, "newadminpanel", 1))
+	//src << "<span class='interface'>Most of your adminverbs have been hidden.</span>"
 
 	return
 
@@ -364,7 +366,8 @@ var/list/admin_verbs_host = list(
 	remove_admin_verbs()
 	verbs += /client/proc/show_verbs
 
-	src << "<span class='interface'>Almost all of your adminverbs have been hidden.</span>"
+	//if(!winshow(src, "newadminpanel", 1))
+	//src << "<span class='interface'>Almost all of your adminverbs have been hidden.</span>"
 
 	return
 
