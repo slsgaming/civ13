@@ -39,23 +39,16 @@ You will need a windows machine or a virtual machine running it from another OS.
 5. You will start playing in seconds!
 
 
-## Hosting a server
+## Hosting Requirements
 You will need a Linux machine (preferably Ubuntu or Debian based) to have map switching properly work...
 
-### Setting up a Linux server (Ubuntu|Debian)
-NOTE: You will need a debian-based machine for the automated install, preferably Ubuntu (supported) or Debian... 
+## Setting up a Server (Ubuntu Linux)
+NOTE: You will need a linux machine for the automated install, preferably Ubuntu (supported) or Debian... 
 
 1. Open the command line.
-2. Make sure wget is installed
-    >$ ***sudo apt install wget***
 	
-3. Download the INSTALL file. 
-    >$ ***wget https://raw.githubusercontent.com/DojoDetroit/Civ13/master/INSTALL*** 
+ 2. Download the INSTALL file. You can use ***wget https://raw.githubusercontent.com/DojoDetroit/Civ13/master/INSTALL*** for it. If you don't have wget installed, use ***sudo apt install wget***  first.
  
- 4. Run the INSTALL file
-    >$ **sudo bash INSTALL** and it should install everything you need.
+ 3. Use **sudo bash INSTALL** and it should install everything you need.
  
- 5. Now start the DreamDaemon via python
-     > $ **sudo launch.py &**
-
-6. Enjoy! You can close out of the ssh window or if on console logout.
+ 7. You're all set! Run the **launch.py** file inside the **scripts/** folder. Use ***python3 launch.py***.
