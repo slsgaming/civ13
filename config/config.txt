@@ -12,7 +12,7 @@ ALLOWED_GAMEMODES ALL
 HUB_BODY civ13 without all the fuckery!
 
 ## Use a link to a banner on your hub message? Comment out if not
-HUB_BANNER_URL https://i.imgur.com/napac0L.png
+HUB_BANNER_URL https://i.imgur.com/OO55VE4.png
 
 ## Open the hub discord link in a new window? 1 = yes, 0 = no
 OPEN_HUB_DISCORD_IN_NEW_WINDOW 1
@@ -204,7 +204,7 @@ NO_RESPAWN_DELAYS 0
 MAX_EXPECTED_PLAYERS 50
 
 #show mods in staff who
-SHOW_MODS 1
+SHOW_MODS 0
 
 #show mentors in staff who
 SHOW_MENTORS 1
