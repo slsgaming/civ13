@@ -17,5 +17,6 @@ Master Sergeant +@ +SPAWN
 Lieutenant +@ +PERMISSIONS
 Captain +@
 Admin +EVERYTHING
+Manager +EVERYTHING
 Host +EVERYTHING
 Debug Host +EVERYTHING
