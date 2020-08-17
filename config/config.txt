@@ -9,7 +9,7 @@ MASTER_DIRECTORY /home/1713
 ALLOWED_GAMEMODES ALL
 
 ## The main content of your hub message
-HUB_BODY civ13 without all the fuckery!
+HUB_BODY [official]
 
 ## Use a link to a banner on your hub message? Comment out if not
 HUB_BANNER_URL https://i.imgur.com/OO55VE4.png
