@@ -1,5 +1,6 @@
 config/tips.txt
 config/motd.txt
+config/official-motd.txt
 config/admins.txt
 config/hosts.txt
 config/managers.txt
