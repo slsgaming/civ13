@@ -1,12 +1,15 @@
 #!/bin/bash
 
-echo WELCOME TO CIV13!
+echo WELCOME TO CIV13:OSE!
+echo MAKE SURE YOU RUN THIS COMMAND AS SUDO
 echo -----------------
 echo Prepairing the system...
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt upgrade
+echo Checking Dependancies.... 
 sudo apt install python3 wget git unzip make sudo
-sudo rm INSTALL.py
-sudo wget https://raw.githubusercontent.com/Civ13/Civ13/master/INSTALL.py
-sudo python3 INSTALL.py 513 1525
+echo ...Installed!
+sudo rm INSTALL-LINUX.py
+sudo wget https://raw.githubusercontent.com/DojoDetroit/Civ13/master/INSTALL-LINUX.py
+sudo python3 INSTALL-LINUX.py 513 1525
