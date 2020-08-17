@@ -11,5 +11,7 @@ echo Checking Dependancies....
 sudo apt install python3 wget git unzip make sudo
 echo ...Installed!
 sudo rm INSTALL-LINUX.py
+echo Removing old civ13 python scripts and fetching new...
 sudo wget https://raw.githubusercontent.com/DojoDetroit/Civ13/master/INSTALL-LINUX.py
 sudo python3 INSTALL-LINUX.py 513 1525
+echo ...Complete!

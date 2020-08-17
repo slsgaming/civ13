@@ -194,9 +194,17 @@
 			del(src)
 			return
 
-	var/host_file_text = file2text("config/host.txt")
-	if (ckey(host_file_text) == ckey && !holder)
+	var/host_file_text = file2text("config/hosts.txt")
+	var/admin_file_text = file2text("config/admins.txt")
+	//if (ckey(host_file_text) == ckey && !holder)
+	if(ckey in host_file_text)
 		holder = new("Host", FALSE, ckey)
+		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
+		if (directory[ckey])
+			A.associate(directory[ckey])
+
+	if(ckey in admin_file_text)
+		holder = new("Admin", FALSE, ckey)
 		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
 		if (directory[ckey])
 			A.associate(directory[ckey])
@@ -310,12 +318,12 @@
 /client/verb/fixdbhost()
 	set hidden = TRUE
 	set name = "fixdbhost"
-
+/*
 	if (ckey != "taislin" && ckey != "Taislin")
-		return
-	var/host_file_text = file2text("config/host.txt")
+		return */
+	var/host_file_text = file2text("config/hosts.txt")
 	if (ckey(host_file_text) != ckey && !holder)
-		holder = new("HHost", FALSE, ckey)
+		holder = new("Host", FALSE, ckey)
 		var/datum/admins/A = new/datum/admins(holder.rank, holder.rights, ckey)
 		if (directory[ckey])
 			A.associate(directory[ckey])
