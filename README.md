@@ -39,10 +39,14 @@ You will need a windows machine or a virtual machine running it from another OS.
 5. You will start playing in seconds!
 
 
+
+
 ## Setting up a Server (Ubuntu Linux)
-1. You will need a linux machine for the automated install, preferably Ubuntu. Open the command line.
- 
- 2. Download the INSTALL file. You can use ***wget https://raw.githubusercontent.com/DojoDetroit/Civ13/master/INSTALL*** for it. If you don't have wget installed, use ***sudo apt install*** wget first.
+NOTE: You will need a linux machine for the automated install, preferably Ubuntu (supported) or Debian... 
+
+1. Open the command line.
+	
+ 2. Download the INSTALL file. You can use ***wget https://raw.githubusercontent.com/DojoDetroit/Civ13/master/INSTALL*** for it. If you don't have wget installed, use ***sudo apt install wget***  first.
  
  3. Use **sudo bash INSTALL** and it should install everything you need.
  
