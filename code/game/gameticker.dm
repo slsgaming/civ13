@@ -196,7 +196,7 @@ var/global/datum/lobby_music_player/lobby_music_player = null
 						restart_after = 1200 - n
 
 			if (!delay_end)
-				world << "<span class='notice'><big>Restarting in <b>90</b> seconds.</big></span>"
+				world << "<span class='notice'><big>Restarting in <b>90</b> seconds...</big></span>"
 				if (restart_after > restart_timeout)
 					restarting_is_very_bad = TRUE
 					spawn (restart_after - restart_timeout)
