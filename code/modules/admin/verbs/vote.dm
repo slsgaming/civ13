@@ -14,7 +14,7 @@
 		src << "<span class = 'notice'>There is no processes.mapswap datum, or it is not ready.</span>"
 
 /client/proc/start_epochswap_vote()
-	set category = "Map"
+	set category = "Epoch"
 	set name = "Start Epoch Vote"
 	if (!check_rights(R_ADMIN))
 		return
