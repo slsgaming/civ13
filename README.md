@@ -39,7 +39,8 @@ You will need a windows machine or a virtual machine running it from another OS.
 5. You will start playing in seconds!
 
 
-
+## Hosting Requirements
+You will need a Linux machine (preferably Ubuntu or Debian based) to have map switching properly work...
 
 ## Setting up a Server (Ubuntu Linux)
 NOTE: You will need a linux machine for the automated install, preferably Ubuntu (supported) or Debian... 

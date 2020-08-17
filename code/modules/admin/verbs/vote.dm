@@ -1,6 +1,6 @@
 //dont use this! use epoch vote
 /client/proc/start_mapswap_vote()
-	set category = "Server"
+	set category = "Map"
 	set name = "Start Map Vote"
 	if (!check_rights(R_ADMIN))
 		return
@@ -14,7 +14,7 @@
 		src << "<span class = 'notice'>There is no processes.mapswap datum, or it is not ready.</span>"
 
 /client/proc/start_epochswap_vote()
-	set category = "Server"
+	set category = "Map"
 	set name = "Start Epoch Vote"
 	if (!check_rights(R_ADMIN))
 		return
