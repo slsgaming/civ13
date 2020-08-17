@@ -1,5 +1,8 @@
 config/tips.txt
 config/motd.txt
+config/admins.txt
+config/hosts.txt
+config/managers.txt
 config/admin_ranks.txt
 config/material_recipes.txt
 config/material_recipes_camp.txt
