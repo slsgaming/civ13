@@ -559,6 +559,7 @@
 #include "code\modules\1713\weapons\guns\mg\special.dm"
 #include "code\modules\1713\weapons\guns\mg\stationary\climbing.dm"
 #include "code\modules\1713\weapons\guns\mg\stationary\mg.dm"
+#include "code\modules\admin\__new_admin_system.dm"
 #include "code\modules\admin\admin.dm"
 #include "code\modules\admin\admin_2_player_memo.dm"
 #include "code\modules\admin\admin_attack_log.dm"
@@ -953,7 +954,7 @@
 #include "code\processes\lighting\sources.dm"
 #include "code\processes\zoom\zoom_mobs.dm"
 #include "code\processes\zoom\zoom_scopes.dm"
-#include "interface\interface.dm"
+#include "interface\interface_hotkeys.dm"
 #include "interface\skin.dmf"
 #include "maps\5000bc\three_tribes.dmm"
 // END_INCLUDE

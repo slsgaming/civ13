@@ -600,8 +600,6 @@ window "mainwindow"
 		is-maximized = true
 		keep-aspect = true
 		macro = "macro"
-		outer-size = 1380x782
-		inner-size = 1366x768
 	elem "mainvsplit"
 		type = CHILD
 		pos = 0,0
@@ -641,6 +639,46 @@ window "mapwindow"
 		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
 		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
 
+window "newadminpanel"
+	elem "newadminpanel"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "New Admin Panel"
+		titlebar = false
+		can-close = false
+		icon = 'E:\\Google Drive\\DEVELOPMENT\\GitHub\\zone6-BETA\\zone6 icon.png'
+		menu = "newadminpanel"
+		outer-size = 654x533
+		inner-size = 640x499
+	elem "label1"
+		type = LABEL
+		pos = 112,16
+		size = 400x80
+		anchor1 = 18,3
+		anchor2 = 80,20
+		font-family = "@Malgun Gothic,@Microsoft JhengHei UI Light"
+		font-size = 25
+		font-style = "bold"
+		background-color = none
+		saved-params = ""
+		text = "Admin Panel"
+	elem "button1"
+		type = BUTTON
+		pos = 264,424
+		size = 96x36
+		anchor1 = 41,88
+		anchor2 = 56,96
+		background-color = none
+		saved-params = "is-checked"
+		text = "Exit"
+		command = "closenewadmin"
+
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
@@ -657,7 +695,6 @@ window "outputwindow"
 		can-resize = false
 		is-pane = true
 		can-scroll = vertical
-		outer-size = 654x494
 	elem "hotkey_toggle"
 		type = BUTTON
 		pos = 546,459
