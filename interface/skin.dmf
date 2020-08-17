@@ -353,33 +353,38 @@ macro "hotkeymode"
 
 menu "menu"
 	elem 
-		name = "&File"
+		name = "&Game"
 		command = ""
 		saved-params = "is-checked"
 	elem 
 		name = "&Quick screenshot\tF2"
 		command = ".screenshot auto"
-		category = "&File"
+		category = "&Game"
 		saved-params = "is-checked"
 	elem 
-		name = "&Save screenshot as...\tShift+F2"
-		command = ".screenshot"
-		category = "&File"
+		name = "&Hotkeys"
+		command = "hotkeys-help"
+		category = "&Game"
 		saved-params = "is-checked"
 	elem 
-		name = ""
-		command = ""
-		category = "&File"
+		name = "&Admin Help"
+		command = "adminhelp"
+		category = "&Game"
+		saved-params = "is-checked"
+	elem 
+		name = "&Who"
+		command = "who"
+		category = "&Game"
 		saved-params = "is-checked"
 	elem 
 		name = "&Reconnect"
 		command = ".reconnect"
-		category = "&File"
+		category = "&Game"
 		saved-params = "is-checked"
 	elem 
-		name = "&Quit"
+		name = "&Exit"
 		command = ".quit"
-		category = "&File"
+		category = "&Game"
 		saved-params = "is-checked"
 	elem 
 		name = "&Icons"
@@ -456,20 +461,6 @@ menu "menu"
 		name = "Site"
 		command = "website"
 		category = "Links"
-		saved-params = "is-checked"
-	elem 
-		name = "&Help"
-		command = ""
-		saved-params = "is-checked"
-	elem 
-		name = "&Admin help\tF1"
-		command = "adminhelp"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem 
-		name = "&Hotkeys"
-		command = "hotkeys-help"
-		category = "&Help"
 		saved-params = "is-checked"
 
 
@@ -609,6 +600,8 @@ window "mainwindow"
 		is-maximized = true
 		keep-aspect = true
 		macro = "macro"
+		outer-size = 1380x782
+		inner-size = 1366x768
 	elem "mainvsplit"
 		type = CHILD
 		pos = 0,0
@@ -651,7 +644,7 @@ window "mapwindow"
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
-		pos = 372,0
+		pos = 281,0
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
@@ -664,6 +657,7 @@ window "outputwindow"
 		can-resize = false
 		is-pane = true
 		can-scroll = vertical
+		outer-size = 654x494
 	elem "hotkey_toggle"
 		type = BUTTON
 		pos = 546,459
@@ -675,7 +669,7 @@ window "outputwindow"
 		text-color = #e1e1d7
 		background-color = #392611
 		saved-params = "is-checked"
-		text = "Hotkey Toggle"
+		text = "Hotkey Mode"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
 		button-type = pushbox
 	elem "saybutton"
@@ -712,7 +706,7 @@ window "outputwindow"
 		anchor2 = 100,100
 		font-family = "Book Antiqua,Bookman Old Style,@SimSun-ExtB"
 		font-size = 9
-		background-color = #392611
+		background-color = #dddddd
 		is-default = true
 		saved-params = "max-lines"
 		style = ".system {color:#ff0000;}"
