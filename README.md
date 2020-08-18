@@ -56,7 +56,9 @@ You will need a Linux machine (preferably Ubuntu or Debian based) to have map sw
  4. Run the INSTALL file
     >$ **sudo bash INSTALL** and it should install everything you need.
  
- 5. Now start the DreamDaemon via python
-     >$ **sudo launch.py &**
+ 5. Now start the DreamDaemon via python (install should auto run hosting)
+     >$ **sudo python3 launch.py &exit**
+
 
 6. Enjoy! You can close out of the ssh window or if on console logout.
+
