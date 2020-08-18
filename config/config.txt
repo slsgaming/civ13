@@ -160,10 +160,10 @@ GITHUBURL https://github.com/DojoDetroit/civ13/
 
 ##Defines the ticklimit for subsystem initialization (In percents of a byond tick). Lower makes world start smoother. Higher makes it faster.
 ##This is currently a testing optimized setting. A good value for production would be 98.
-TICK_LIMIT_MC_INIT 500
+TICK_LIMIT_MC_INIT 150
 
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
-TICKLAG 0.3
+TICKLAG 0.4
 
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
@@ -212,7 +212,7 @@ SHOW_MODS 1
 SHOW_MENTORS 1
 
 #disables field of view if uncommented
-DISABLE_FOV
+#DISABLE_FOV
 
 #if uncommented, redirects all players to the target server
 #REDIRECT_ALL_PLAYERS byond://civ13.com:1714
